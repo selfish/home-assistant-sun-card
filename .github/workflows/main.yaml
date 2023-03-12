@@ -3,7 +3,7 @@ name: Build & Release
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-release:
@@ -26,10 +26,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Set up Node
-        uses: actions/setup-node@v1.1.0
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: '19.x'
+          node-version: 19
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
@@ -43,3 +43,13 @@ jobs:
       - uses: rymndhng/release-on-push-action@master
         with:
           bump_version_scheme: minor
+        # Upload build file to the releas as an asset.
+
+      - name: Upload zip to release
+        uses: svenstaro/upload-release-action@v1-release
+        with:
+          overwrite: true
+          tag: ${{ github.ref }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          asset_name: lovelace-sun-card.js
+          file: /home/runner/work/lovelace-sun-card/lovelace-sun-card/dist/lovelace-sun-card.js
