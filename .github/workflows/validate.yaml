@@ -25,10 +25,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Set up Node
-        uses: actions/setup-node@v1.1.0
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: '19.x'
+          node-version: 19
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
