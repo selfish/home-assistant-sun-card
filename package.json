@@ -1,5 +1,5 @@
 {
-  "name": "homeassistant-sun-card",
+  "name": "lovelace-sun-card",
   "version": "1.0.0",
   "description": "Home assistant sun card based on Google weather design",
   "main": "dist/index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AitorDB/homeassistant-sun-card.git"
+    "url": "git+https://github.com/selfish/lovelace-sun-card.git"
   },
-  "author": "AitorDB <aitor.db.mail@gmail.com>",
+  "author": "Selfish",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AitorDB/homeassistant-sun-card/issues"
+    "url": "https://github.com/selfish/lovelace-sun-card/issues"
   },
-  "homepage": "https://github.com/AitorDB/homeassistant-sun-card#readme",
+  "homepage": "https://github.com/selfish/lovelace-sun-card#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
