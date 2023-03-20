@@ -1,6 +1,6 @@
 import { LovelaceCardConfig } from "custom-card-helpers";
 
-import { I18N } from "../utils/I18N";
+import { I18N } from "../utils/i18n";
 
 export type TSunCardFields = {
   sunrise?: boolean
