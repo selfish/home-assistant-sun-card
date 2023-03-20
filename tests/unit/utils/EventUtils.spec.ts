@@ -1,75 +1,75 @@
 // eslint-env jest
-import { EventUtils } from '../../../src/utils/EventUtils'
+import { EventUtils } from "../../../src/utils/EventUtils";
 
-describe('EventUtils', () => {
-  let eventUtils: EventUtils
+describe("EventUtils", () => {
+  let eventUtils: EventUtils;
   beforeEach(() => {
-    eventUtils = new EventUtils()
-  })
+    eventUtils = new EventUtils();
+  });
 
-  describe('on', () => {
-    it('adds the listener to the eventMap if the event already exists', () => {
-      const event = 'test'
+  describe("on", () => {
+    it("adds the listener to the eventMap if the event already exists", () => {
+      const event = "test";
       const testEventListener = () => {
-        return
-      }
-      
-      eventUtils.on(event, testEventListener)
-      const testEventListeners = eventUtils.eventMap.get(event)!
-      expect(testEventListeners.length).toBe(1)
-      expect(testEventListeners[0]).toBe(testEventListener)
+        return;
+      };
+
+      eventUtils.on(event, testEventListener);
+      const testEventListeners = eventUtils.eventMap.get(event)!;
+      expect(testEventListeners.length).toBe(1);
+      expect(testEventListeners[0]).toBe(testEventListener);
 
       const newTestEventListener = () => {
-        return
-      }
-      
-      eventUtils.on(event, newTestEventListener)
-      const newTestEventListeners = eventUtils.eventMap.get(event)!
-      expect(newTestEventListeners.length).toBe(2)
-      expect(newTestEventListeners[0]).toBe(testEventListener)
-      expect(newTestEventListeners[1]).toBe(newTestEventListener)
-    })
+        return;
+      };
 
-    it('adds the listener to the eventMap if the event did not exist before', () => {
-      const event = 'test'
-      const testEventListeners = eventUtils.eventMap.get(event)
-      expect(testEventListeners).toBeUndefined()
+      eventUtils.on(event, newTestEventListener);
+      const newTestEventListeners = eventUtils.eventMap.get(event)!;
+      expect(newTestEventListeners.length).toBe(2);
+      expect(newTestEventListeners[0]).toBe(testEventListener);
+      expect(newTestEventListeners[1]).toBe(newTestEventListener);
+    });
+
+    it("adds the listener to the eventMap if the event did not exist before", () => {
+      const event = "test";
+      const testEventListeners = eventUtils.eventMap.get(event);
+      expect(testEventListeners).toBeUndefined();
 
       const testEventListener = () => {
-        return
-      }
-      
-      eventUtils.on(event, testEventListener)
-      const newTestEventListeners = eventUtils.eventMap.get(event)!
-      expect(newTestEventListeners.length).toBe(1)
-      expect(newTestEventListeners[0]).toBe(testEventListener)
-    })
-  })
+        return;
+      };
 
-  describe('emit', () => {
-    it('calls listeners if there is listeners for the event', () => {
-      const event = 'test'
-      const testEventListener = jest.fn()
-      eventUtils.eventMap.set(event, [testEventListener])
+      eventUtils.on(event, testEventListener);
+      const newTestEventListeners = eventUtils.eventMap.get(event)!;
+      expect(newTestEventListeners.length).toBe(1);
+      expect(newTestEventListeners[0]).toBe(testEventListener);
+    });
+  });
 
-      const data = 'testData'
-      eventUtils.emit(event, data)
+  describe("emit", () => {
+    it("calls listeners if there is listeners for the event", () => {
+      const event = "test";
+      const testEventListener = jest.fn();
+      eventUtils.eventMap.set(event, [testEventListener]);
 
-      expect(testEventListener).toHaveBeenCalledWith(data)
-    })
+      const data = "testData";
+      eventUtils.emit(event, data);
 
-    it('does not crash if there is not listeners for the event', () => {
-      const event = 'test'
-      let emitError
+      expect(testEventListener).toHaveBeenCalledWith(data);
+    });
+
+    it("does not crash if there is not listeners for the event", () => {
+      const event = "test";
+      let emitError;
 
       try {
-        const data = 'testData'
-        eventUtils.emit(event, data)
+        const data = "testData";
+        eventUtils.emit(event, data);
       } catch (error) {
-        emitError = error
+        emitError = error;
       }
 
-      expect(emitError).toBeUndefined()
-    })
-  })
-})
+      expect(emitError).toBeUndefined();
+    });
+  });
+});

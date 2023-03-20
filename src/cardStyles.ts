@@ -1,4 +1,4 @@
-import { css } from 'lit'
+import { css } from "lit";
 
 export default css`
   .sun-card {
@@ -26,7 +26,7 @@ export default css`
     --sun-card-secondary: #828282;
     --sun-card-accent: #464646;
   }
-  
+
   .sun-card-field-row {
     display: flex;
     justify-content: space-around;
@@ -125,4 +125,4 @@ export default css`
   .card-config li {
     padding: 0.5rem 0;
   }
-`
+`;

@@ -1,11 +1,11 @@
-import { SunCardGraph } from '../../../../src/components/sunCard/SunCardGraph'
-import { TSunCardData } from '../../../../src/types'
-import { CustomSnapshotSerializer, TemplateResultTestHelper } from '../../../helpers/TestHelpers'
+import { SunCardGraph } from "../../../../src/components/sunCard/SunCardGraph";
+import { TSunCardData } from "../../../../src/types";
+import { CustomSnapshotSerializer, TemplateResultTestHelper } from "../../../helpers/TestHelpers";
 
-expect.addSnapshotSerializer(new CustomSnapshotSerializer())
+expect.addSnapshotSerializer(new CustomSnapshotSerializer());
 
-describe('SunCardGraph', () => {
-  describe('render', () => {
+describe("SunCardGraph", () => {
+  describe("render", () => {
     it(`should the graph with the data values when provided`, async () => {
       const data = {
         sunInfo: {
@@ -21,26 +21,26 @@ describe('SunCardGraph', () => {
           sunrise: 200,
           sunset: 400
         }
-      } as TSunCardData
+      } as TSunCardData;
 
-      const sunCardGraph = new SunCardGraph(data)
-      const element = window.document.createElement('test-element') as TemplateResultTestHelper<typeof sunCardGraph.render>
-      element.templateResultFunction = () => sunCardGraph.render()
-      window.document.body.appendChild(element)
-      await element.updateComplete
+      const sunCardGraph = new SunCardGraph(data);
+      const element = window.document.createElement("test-element") as TemplateResultTestHelper<typeof sunCardGraph.render>;
+      element.templateResultFunction = () => sunCardGraph.render();
+      window.document.body.appendChild(element);
+      await element.updateComplete;
 
-      expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
-    })
+      expect(element.shadowRoot!.innerHTML).toMatchSnapshot();
+    });
 
     it(`should the graph with the default values when data values are not provided`, async () => {
-      const data = {} as TSunCardData
-      const sunCardGraph = new SunCardGraph(data)
-      const element = window.document.createElement('test-element') as TemplateResultTestHelper<typeof sunCardGraph.render>
-      element.templateResultFunction = () => sunCardGraph.render()
-      window.document.body.appendChild(element)
-      await element.updateComplete
+      const data = {} as TSunCardData;
+      const sunCardGraph = new SunCardGraph(data);
+      const element = window.document.createElement("test-element") as TemplateResultTestHelper<typeof sunCardGraph.render>;
+      element.templateResultFunction = () => sunCardGraph.render();
+      window.document.body.appendChild(element);
+      await element.updateComplete;
 
-      expect(element.shadowRoot!.innerHTML).toMatchSnapshot()
-    })
-  })
-})
+      expect(element.shadowRoot!.innerHTML).toMatchSnapshot();
+    });
+  });
+});

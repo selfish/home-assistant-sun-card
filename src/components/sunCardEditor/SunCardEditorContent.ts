@@ -1,22 +1,22 @@
-import { html,TemplateResult } from 'lit'
+import { html, TemplateResult } from "lit";
 
-import { Constants } from '../../constants'
-import { ESunCardI18NKeys,IConfigChangedEvent, ISunCardConfig } from '../../types'
-import { EventUtils } from '../../utils/EventUtils'
+import { Constants } from "../../constants";
+import { ESunCardI18NKeys, IConfigChangedEvent, ISunCardConfig } from "../../types";
+import { EventUtils } from "../../utils/EventUtils";
 
 export type TSunCardEditorContentEvents = {
   configChanged: IConfigChangedEvent<{ value: unknown }>
 }
 
 export class SunCardEditorContent extends EventUtils<TSunCardEditorContentEvents> {
-  config: ISunCardConfig
+  config: ISunCardConfig;
 
-  constructor (config: ISunCardConfig) {
-    super()
-    this.config = config
+  constructor(config: ISunCardConfig) {
+    super();
+    this.config = config;
   }
 
-  public render (): TemplateResult {
+  public render(): TemplateResult {
     return html`
       <div class="card-config">
         <div>
@@ -35,33 +35,33 @@ export class SunCardEditorContent extends EventUtils<TSunCardEditorContentEvents
           ${this.renderFieldsEditor()}
         </div>
       </div>
-    `
+    `;
   }
 
-  private onConfigChanged (event: TSunCardEditorContentEvents['configChanged']) {
-    this.emit('configChanged', event)
+  private onConfigChanged(event: TSunCardEditorContentEvents["configChanged"]) {
+    this.emit("configChanged", event);
   }
 
-  private renderTitleEditor (): TemplateResult {
+  private renderTitleEditor(): TemplateResult {
     return html`
       <paper-input
         label="Title (Optional)"
-        .configValue=${'title'}
-        .value=${this.config?.title ?? ''}
+        .configValue=${"title"}
+        .value=${this.config?.title ?? ""}
         @value-changed=${(event) => this.onConfigChanged(event)}
       >
       </paper-input>
-    `
+    `;
   }
 
-  private renderLanguageEditor (): TemplateResult {
+  private renderLanguageEditor(): TemplateResult {
     // TODO: Add language full name
-    const selectedLanguage = Object.keys(Constants.LOCALIZATION_LANGUAGES).indexOf(this.config?.language ?? '') + 1
+    const selectedLanguage = Object.keys(Constants.LOCALIZATION_LANGUAGES).indexOf(this.config?.language ?? "") + 1;
 
     return html`
       <paper-dropdown-menu
         label="Language"
-        .configValue=${'language'}
+        .configValue=${"language"}
         @value-changed=${(event) => this.onConfigChanged(event)}
       >
         <paper-listbox slot="dropdown-content" selected="${selectedLanguage}">
@@ -71,16 +71,16 @@ export class SunCardEditorContent extends EventUtils<TSunCardEditorContentEvents
           `)}
         </paper-listbox>
       </paper-dropdown-menu>
-    `
+    `;
   }
 
-  private renderDarkModeEditor (): TemplateResult {
-    const selectedDarkMode = this.config?.darkMode ?? 'default'
+  private renderDarkModeEditor(): TemplateResult {
+    const selectedDarkMode = this.config?.darkMode ?? "default";
     return html`
       <label id="theme">Theme:</label>
       <paper-radio-group
         aria-labelledby="theme"
-        .configValue=${'darkMode'}
+        .configValue=${"darkMode"}
         .selected=${selectedDarkMode.toString()}
         @paper-radio-group-changed=${(event) => this.onConfigChanged(event)}
       >
@@ -88,17 +88,17 @@ export class SunCardEditorContent extends EventUtils<TSunCardEditorContentEvents
         <paper-radio-button name="true">Dark</paper-radio-button>
         <paper-radio-button name="false">Light</paper-radio-button>
       </paper-radio-group>
-    `
+    `;
   }
 
-  private render12HourClockEditor (): TemplateResult {
-    const selectedClockMode = this.config?.use12hourClock ?? 'default'
+  private render12HourClockEditor(): TemplateResult {
+    const selectedClockMode = this.config?.use12hourClock ?? "default";
 
     return html`
       <label id="clock">Clock mode:</label>
       <paper-radio-group
         aria-labelledby="clock"
-        .configValue=${'use12hourClock'}
+        .configValue=${"use12hourClock"}
         .selected=${selectedClockMode.toString()}
         @paper-radio-group-changed=${(event) => this.onConfigChanged(event)}
       >
@@ -106,19 +106,19 @@ export class SunCardEditorContent extends EventUtils<TSunCardEditorContentEvents
         <paper-radio-button name="true">12 hours</paper-radio-button>
         <paper-radio-button name="false">24 hourse</paper-radio-button>
       </paper-radio-group>
-    `
+    `;
   }
 
-  private renderFieldsEditor (): TemplateResult {
+  private renderFieldsEditor(): TemplateResult {
     return html`
       <label>Card fields:</label>
       <ul>
         ${Object.entries(ESunCardI18NKeys).map(([name, configValue]) => {
-    return html`
+      return html`
             <li><ha-switch .configValue=${configValue} .checked=${this.config.fields?.[configValue] ?? Constants.DEFAULT_CONFIG.fields![configValue]} @change=${(event) => this.onConfigChanged(event)}></ha-switch> ${name}</li>
-          `
-  })}
+          `;
+    })}
       </ul>
-    `
+    `;
   }
 }

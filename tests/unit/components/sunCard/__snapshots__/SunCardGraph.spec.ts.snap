@@ -4,7 +4,7 @@ exports[`SunCardGraph render should the graph with the data values when provided
 <!---->
       <div class="sun-card-graph">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 150">
-          
+
           <!-- Define gradients for use when drawing afterwards -->
           <defs>
             <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="sun-gradient">
@@ -12,19 +12,19 @@ exports[`SunCardGraph render should the graph with the data values when provided
               <stop class="sunMiddleStop" offset="0%"></stop>
               <stop class="sunEndStop" offset="0%"></stop>
             </linearGradient>
-            
+
             <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="dawn-gradient">
               <stop offset="0%" class="dawnInitialStop"></stop>
               <stop class="dawnMiddleStop" offset="100%"></stop>
               <stop class="dawnEndStop" offset="100%"></stop>
             </linearGradient>
-            
+
             <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="day-gradient">
               <stop offset="0%" class="dayInitialStop"></stop>
               <stop class="dayMiddleStop" offset="100%"></stop>
               <stop class="dayEndStop" offset="100%"></stop>
             </linearGradient>
-            
+
             <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="dusk-gradient">
               <stop offset="0%" class="duskInitialStop"></stop>
               <stop class="duskMiddleStop" offset="23%"></stop>
@@ -63,7 +63,7 @@ exports[`SunCardGraph render should the graph with the default values when data 
 <!---->
       <div class="sun-card-graph">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 150">
-          
+
           <!-- Define gradients for use when drawing afterwards -->
           <defs>
             <linearGradient x1="0%" y1="0%" x2="0%" y2="100%" id="sun-gradient">
@@ -71,19 +71,19 @@ exports[`SunCardGraph render should the graph with the default values when data 
               <stop class="sunMiddleStop" offset="0%"></stop>
               <stop class="sunEndStop" offset="0%"></stop>
             </linearGradient>
-            
+
             <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="dawn-gradient">
               <stop offset="0%" class="dawnInitialStop"></stop>
               <stop class="dawnMiddleStop" offset="0%"></stop>
               <stop class="dawnEndStop" offset="0%"></stop>
             </linearGradient>
-            
+
             <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="day-gradient">
               <stop offset="0%" class="dayInitialStop"></stop>
               <stop class="dayMiddleStop" offset="0%"></stop>
               <stop class="dayEndStop" offset="0%"></stop>
             </linearGradient>
-            
+
             <linearGradient x1="0%" y1="0%" x2="100%" y2="0%" id="dusk-gradient">
               <stop offset="0%" class="duskInitialStop"></stop>
               <stop class="duskMiddleStop" offset="0%"></stop>

@@ -1,4 +1,4 @@
-export {}
+export {};
 
 declare global {
   interface Window {
@@ -7,19 +7,18 @@ declare global {
       type: string,
       description: string,
       preview?: boolean
-    }[]
+    }[];
   }
 
   interface Intl {
     DateTimeFormatOptions: {
       timeStyle: string
-    }
+    };
   }
 
   namespace Intl {
     interface DateTimeFormatOptions {
-      timeStyle: string
+      timeStyle: string;
     }
   }
 }
-
