@@ -9,7 +9,6 @@ on:
 jobs:
   build-and-release:
     name: Build & Release
-    needs: build-and-test
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
