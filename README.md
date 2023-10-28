@@ -1,4 +1,12 @@
 # Lovelace Sun Card
+
+# **DEPRECATED**
+
+USE https://github.com/rejuvenate/lovelace-horizon-card
+
+---
+---
+
 <center>
 Home assistant Sun card based on Google weather design.
 
