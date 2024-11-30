@@ -1,2 +1,2 @@
-import "./components/sunCard";
-import "./components/sunCardEditor";
+import "./components/sun-card";
+import "./components/editor";

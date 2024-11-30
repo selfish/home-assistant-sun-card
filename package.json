@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "rollup -c rollup.config.dev.mjs --watch",
     "build": "rimraf dist && npm run lint && npm run rollup",
-    "lint": "eslint src",
+    "lint": "eslint .",
     "lint:fix": "eslint --fix src",
     "rollup": "rollup -c",
     "test": "jest"

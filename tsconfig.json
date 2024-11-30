@@ -28,12 +28,12 @@
     "emitDecoratorMetadata": true,
   },
   "include": [
-    "src/**/*",
-    "test/**/*",
+    "src",
+    "tests",
+    "jest.config.mjs",
     "node_modules/ts-jest/globals.d.ts"
   ],
   "exclude": [
     "node_modules",
-    "es"
   ]
 }
